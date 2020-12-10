@@ -13,7 +13,7 @@ as implemented in [matminer](https://hackingmaterials.lbl.gov/matminer/).
 
 ## MaPPT in action
 The left side is a visualization of the crystal structure for [the Kondo
-material SmB$_6$](https://arxiv.org/pdf/2003.11052.pdf) using
+material SmB6](https://arxiv.org/pdf/2003.11052.pdf) using
 [VESTA](https://jp-minerals.org/vesta/en/). The right side is a simple web front
 end for MaPPT.
 <br>
