@@ -59,5 +59,5 @@ over a network, they are excluded from this submission. They are still available
 upon request.
 - `performance.ipynb` is used to load the models and study their accuracy.
 
-##### Note: due to runtime, many calculations were submitted as jobs to Cypress.
-**All Cypress input and output files will be made available upon request.**
+##### Note: due to runtime, many calculations were submitted as jobs to HPC clusters.
+**All HPC input and output files (e.g., SLURM scripts) will be made available upon request.**
