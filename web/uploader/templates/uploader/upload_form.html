@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<title>MaPPT</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1 {font-family: "Montserrat", sans-serif}
+img {margin-bottom: -7px}
+.w3-row-padding img {margin-bottom: 12px}
+</style>
+<style>
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+</style>
+<body>
+
+<!-- Sidebar -->
+{% comment %} <nav class="w3-sidebar w3-black w3-animate-top w3-xxlarge" style="display:none;padding-top:150px" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-black w3-xxlarge w3-padding w3-display-topright" style="padding:6px 24px">
+    <i class="fa fa-remove"></i>
+  </a>
+  <div class="w3-bar-block w3-center">
+    <a href="https://github.com/jkidd1" class="w3-bar-item w3-button w3-text-grey w3-hover-black">GitHub</a>
+    <a href="https://hackingmaterials.lbl.gov/matminer/" class="w3-bar-item w3-button w3-text-grey w3-hover-black">matminer</a>
+    <a href="https://pymatgen.org/index.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Pymatgen</a>
+    <a href="https://materialsproject.org/" class="w3-bar-item w3-button w3-text-grey w3-hover-black">The Materials Project</a>
+    <a href="https://scikit-learn.org/stable/index.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black">scikit-learn</a>
+  </div>
+</nav> {% endcomment %}
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-content" style="max-width:1500px">
+
+<!-- Header -->
+<div>
+{% comment %} <span class="w3-button w3-xxlarge w3-white w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></span>  {% endcomment %}
+<header class="w3-center w3-margin-bottom" style="font-size:20px; margin-top: 50px">
+  <h1 style="font-size:70px"><b><img src="https://i.imgur.com/brHOPXQ.png" style="width:50%"/></b></h1>
+  <p><b>Requires a structure file (see <a href="https://pymatgen.org/pymatgen.core.structure.html#pymatgen.core.structure.IStructure.from_file">here</a> for a list of supported formats).</b></p>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Make prediction!</button>
+  </form>
+  {% for document in documents %}
+    <p style="font-size:30px"> <span style="color:blue"> {{ document.get_system_name }} </span> is a topologically <span style="color:red">{{ document.get_topological_characterization }}</span> <span style="color:green">{{document.get_electronic_characterization}}</span>.</p>
+  {% endfor %}
+</header>
+</div>
+<!-- End Page Content -->
+
+</div>
+
+<div class="footer">
+  <p>
+  <img src="https://materialsproject.org/static/images/Logo/Mp-logo-v5.ad467cf84f15.png" width="10%">
+  <img src="https://pymatgen.org/_images/pymatgen.png" width="20%">
+  <img src="https://i.imgur.com/gLUZlke.png" width="7.5%">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Scikit_learn_logo_small.svg/330px-Scikit_learn_logo_small.svg.png" width="11%">
+  <img src="https://algorithmtnp.com/wp-content/uploads/2019/11/django-in-Bhopal-Algorithm-TnP.png" width="8%">
+  </p>
+</div>
+
+<!-- Footer -->
+{% comment %} <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge" style="margin-top:315px"> 
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer> {% endcomment %}
+ 
+{% comment %} <script>
+
+// Open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.width = "100%";
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script> {% endcomment %}
